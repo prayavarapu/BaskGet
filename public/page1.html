@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Bulma CDN-->
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.4/css/bulma.css">
+	<!--Animate.CSS CDN-->
+	<link rel="stylesheet"
+  	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  	<!--Font Links-->
+  	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+
+	<title>[App Name]</title>
+</head>
+<body>
+
+<p id = "h1" class="title is-1">Title 1</p>
+<p id = "h2" class="subtitle is-3">Subtitle 3</p>
+
+<div id = "container1">
+	<div class="field">
+	  <label class="label">E-mail: </label>
+	  <div class="control has-icons-left has-icons-right">
+	    <input id = "email" class="input is-success" type="email">
+	    <span class="icon is-small is-left">
+	      <i class="fa fa-user"></i>
+	    </span>
+	    <span class="icon is-small is-right">
+	      <i class="fa fa-check"></i>
+	    </span>
+	  </div>
+	  <!-- <p class="help is-success">This username is available</p> -->
+	</div>
+
+	<div class="field">
+	  <label class="label">Password: </label>
+	  <div class="control has-icons-left has-icons-right">
+	    <input id = "password" class="input is-danger" type="password">
+	    <span class="icon is-small is-left">
+	      <i class="fa fa-envelope"></i>
+	    </span>
+	    <span class="icon is-small is-right">
+	      <i class="fa fa-warning"></i>
+	    </span>
+	  </div>
+	<!--   <p class="help is-danger">This email is invalid</p> -->
+	</div>
+</div>
+
+<style>
+
+	html{
+
+		width: 1500px;
+		height: 800px;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000d29+7,118c8b+36,118c8b+36,bca18d+67,f2746b+85,f14d49+100 */
+	background: rgb(0,13,41); /* Old browsers */
+	background: -moz-linear-gradient(-45deg, rgba(0,13,41,1) 7%, rgba(17,140,139,1) 36%, rgba(17,140,139,1) 36%, rgba(188,161,141,1) 67%, rgba(242,116,107,1) 85%, rgba(241,77,73,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, rgba(0,13,41,1) 7%,rgba(17,140,139,1) 36%,rgba(17,140,139,1) 36%,rgba(188,161,141,1) 67%,rgba(242,116,107,1) 85%,rgba(241,77,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, rgba(0,13,41,1) 7%,rgba(17,140,139,1) 36%,rgba(17,140,139,1) 36%,rgba(188,161,141,1) 67%,rgba(242,116,107,1) 85%,rgba(241,77,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000d29', endColorstr='#f14d49',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			}
+
+	#container1{
+
+		width: 750px;
+		height: 500px;
+		margin-left: 300px;
+		margin-top: 150px;
+	}
+
+	.label{
+		
+		font-family: "Abril Fatface", cursive;
+		font-size: 30px;
+		color: #F14D49;
+	}
+
+	#h1, #h2{
+		font-family: "Abril Fatface", cursive;
+		font-size: 30px;
+		color: #F14D49;
+
+	}
+
+	#email, #password{
+
+		background-color: white;
+/*		opacity: ;
+*/		border-color: #F14D49;
+	}
+
+	#header{
+		background-color: none;
+	}
+
+
+</style>
+<script>
+
+$("#container1").addClass("animated bounceOutLeft");
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
