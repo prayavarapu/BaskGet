@@ -2,21 +2,80 @@
 <html>
 <head>
 	<title></title>
+	<script src="/js/functions.js"></script>
 </head>
 <body>
-	<h2 class = "page-header">Welcome! </h2>
-	<p>You can start creating your shopping carts here: </p>
-	<button type="button" class="btn btn-info">
-		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-
-	</button>
-
 	
 	<div class = "container">
+	<div class = "row-1">
+		<h2>Click on a shopping cart to begin adding: </h2>
+	</div>
+
+	<div class = "row-2">
+		<button type="button" class="btn btn-default">Fashion</button>
+
+		<button type="button" class="btn btn-default">Tech</button>
+
+		<button type="button" class="btn btn-default">Household</button>
+
+		<button type="button" class="btn btn-default">Beauty</button>
+
+		<button type="button" class="btn btn-default">Gifts</button>
+
+		<button type="button" class="btn btn-default" id ="add">+</button>
+	</div>
+</div>
+	<!-- <h2 class = "page-header">Welcome! </h2>
+	<p>You can start creating your shopping carts here: </p> -->
+
+	<!--Modal/form-->
+	<!-- Button trigger modal -->
+	<!-- <button class="btn btn-primary" id = "make-list" data-toggle="modal" data-target=".bd-example-modal-lg">Create New Wishlist</button>
+		     
+		     <form action = "/" method = "post">
+		      <br><br>
+				 
+				  <div class="form-group">
+				  <label for="productType">Product type: </label>
+				    <input type="text" class="form-control" id="productType" placeholder="Enter product type" name = "productType">
+				   
+				  </div>
+				  <div class="form-group">
+				    <label for="productTag">Brand or company: </label>
+				    <input type="text" class="form-control" id="productTag" placeholder="Enter product tag" name = "productTag">
+				  </div>
+		
+				  <div class="form-group">
+				    <label for="productTag">Product URL: </label>
+				    <input type="url" class="form-control" id="productURL" placeholder="Paste product URL">
+				  </div>
+				  <button id = "submitForm" type="submit" class="btn btn-primary">Submit</button> 
+				  <br> <br>
+				</form>
+		    </div>
+		  </div>
+		</div> -->
+ 
+	
+
 		<div id = "lists">
 
 		</div>
 	</div>
 
+
+<!-- <script>
+	
+	$("#make-list").click(function(){
+		console.log("tis working");
+	})
+
+</script> -->
+
+
+
+
 </body>
 </html>
+
+
