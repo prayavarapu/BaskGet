@@ -2,20 +2,43 @@
 		  <h1>Logo</h1>
 		</div>
 
-<center><div class = "container">
-	<div id = "list-box">
-		<h3>
-		Name of Cart
-		<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add</button>
-		</h3>
-		<div id ="list-content">
-			<!--buttons containing product link-->
-			<button type="button" class="btn btn-default">Product 1</button>
-				
-				<button type="button" class="btn btn-default"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+<div class = "container">
+	<button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
-			<br> <br>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
 
-			<button type="button" class="btn btn-default">Product 2</button>
-				
-				<button type="button" class="btn btn-default"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+	<form action = "/users/lists" method = "post">
+		      <br><br>
+				 
+				  <div class="form-group">
+				  <label for="productType">Product type: </label>
+				    <input type="text" class="form-control" id="productType" placeholder="Enter product type" name = "productType">
+				   
+				  </div>
+				  <div class="form-group">
+				    <label for="productTag">Brand or company: </label>
+				    <input type="text" class="form-control" id="productTag" placeholder="Enter product tag" name = "productTag">
+				  </div>
+		
+				  <div class="form-group">
+				    <label for="productTag">Product URL: </label>
+				    <input type="text" class="form-control" id="productURL" placeholder="Paste product URL" name = "url">
+				  </div>
+				  <button id = "submitForm" type="submit" class="btn btn-primary">Submit</button> 
+				  <br> <br>
+				</form>
+
+
+    </div>
+  </div>
+</div>
+
+<div id = "list-box">
+
+</div>
+</div>
+
+

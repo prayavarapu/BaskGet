@@ -6,6 +6,9 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
+var List = require('../models/list');
+var Content = require('../models/content');
+
 
 // Register
 router.get('/register', function(req, res){
@@ -100,6 +103,70 @@ router.get('/logout', function(req, res){
 
 	res.redirect('/users/login');
 });
+
+
+// Get list page
+router.get('/lists', function(req, res, next){
+	console.log("tis working");
+	res.render('list');
+});
+
+//creating example list and putting content within it
+
+var exampleList = new List({
+	name: "Fashion"
+});
+
+exampleList.save(function(error, doc){
+	if (error){
+		console.log(error);
+
+	}
+	else{
+		console.log(doc);
+	}
+});
+
+router.post("/lists", function(req, res){
+	var productType = req.body.productType;
+	var productTag = req.body.productTag;
+	var url = req.body.url;
+	console.log("url: " + url);
+
+	var newContent = new Content({
+		productType: productType,
+		productTag: productTag,
+		url: url
+	})
+
+	newContent.save(function(err, doc){
+		if (err){
+			res.send(err);
+		}
+		else{
+			res.send(doc);
+		}
+	});
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
 

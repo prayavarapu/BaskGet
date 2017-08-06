@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var ListSchema = new Schema({
 	title: {
 		type: String
-	}
+	},
 
 	content: [{
 		type: Schema.Types.ObjectId,
