@@ -108,80 +108,110 @@ router.get('/logout', function(req, res){
 // Get list page
 router.get('/lists/:title', function(req, res){
 	 var titleList = req.params.title;
-	console.log(titleList);
+	//console.log(titleList);
 
 
 res.render('list', {title: titleList});
 });
 
-	//adding list to database
-// 	router.post('/lists/:title', function(req, res){
-// 		console.log("hello this is from the post method: " + titleList);
-// 		var newList = new List({
-// 			title: titleList
-// 		})
-
-// 		newList.save(function(error, doc){
-// 			if (error){
-// 				console.log(error);
-// 			}
-// 			else{
-// 				console.log(doc);
-// 			}
-// 	})
-// })
-
-
 
 //creating example list and putting content within it
 
-var exampleList = new List({
-	name: "Fashion"
-});
+// var exampleList = new List({
+// 	title: "Fashion"
+// });
 
-exampleList.save(function(error, doc){
-	if (error){
-		console.log(error);
+// exampleList.save(function(error, doc){
+// 	if (error){
+// 		console.log(error);
 
-	}
-	else{
-		console.log(doc);
-	}
-});
+// 	}
+// 	else{
+// 		console.log(doc);
+// 	}
+// });
 
 //adding content within the list
 router.post("/lists", function(req, res){
-	var productType = req.body.productType;
-	console.log(productType);
-	var productTag = req.body.productTag;
-	console.log(productTag);
-	var url = req.body.url;
-	 console.log("url: " + url);
 
+	var lstTitle = req.body.title;
+	//console.log(lstTitle);
+	//console.log(req.body);
+	var productType = req.body.productType;
+	//console.log(productType);
+	var productTag = req.body.productTag;
+	//console.log(productTag);
+	var url = req.body.url;
+	//console.log("url: " + url);
+
+	
 	var newContent = new Content({
 		productType: productType,
 		productTag: productTag,
 		url: url
 	})
 
-	newContent.save(function(err, doc){
-		if (err){
-			res.send(err);
+	var newList = new List({
+		title: lstTitle,
+		content: newContent
+	})
+
+	
+	List.findOne({title: lstTitle}, function(err, found){
+		if(err){
+			console.log("error: " + err);
+		}
+		if(found){
+			console.log("found it! " + found);
+			var found_title = found.title;
+			updateContent(found_title, newContent);
+
 		}
 		else{
-			List.findOneAndUpdate({}, {$push: {"content": doc._id} }, {new: true}, function(err, newdoc){
+			newList.save(function(err, result){
+				if(err){
+					console.log(err);
+
+				}
+				else{
+					found_title = result.title;
+					console.log("this is the doc id " + found_title);
+						updateContent(found_title, newContent);
+						}
+					});
+					
+				}
+			})
+		//}
+	//})
+
+	var updateContent = function(listTitle, content){
+	newContent.save(function(err, content){
+		if (err){
+			console.log(err);
+		}
+		else{
+			List.findOneAndUpdate({"title": listTitle}, {$push: {"content": content} }, {new: true}, function(err, newdoc){
 
 				if(err){
-					res.send(err);
+					console.log(err);
 				}
 				else{
 					res.send(newdoc);
 				}
 			})
 		}
-	});
+	})
+//update content function ending
+};
 
-});
+
+
+	
+ 
+//end of the .post method
+ });
+
 
 
 
