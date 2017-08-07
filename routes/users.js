@@ -106,10 +106,32 @@ router.get('/logout', function(req, res){
 
 
 // Get list page
-router.get('/lists', function(req, res, next){
-	console.log("tis working");
-	res.render('list');
+router.get('/lists/:title', function(req, res){
+	 var titleList = req.params.title;
+	console.log(titleList);
+
+
+res.render('list', {title: titleList});
 });
+
+	//adding list to database
+// 	router.post('/lists/:title', function(req, res){
+// 		console.log("hello this is from the post method: " + titleList);
+// 		var newList = new List({
+// 			title: titleList
+// 		})
+
+// 		newList.save(function(error, doc){
+// 			if (error){
+// 				console.log(error);
+// 			}
+// 			else{
+// 				console.log(doc);
+// 			}
+// 	})
+// })
+
+
 
 //creating example list and putting content within it
 
@@ -127,11 +149,14 @@ exampleList.save(function(error, doc){
 	}
 });
 
+//adding content within the list
 router.post("/lists", function(req, res){
 	var productType = req.body.productType;
+	console.log(productType);
 	var productTag = req.body.productTag;
+	console.log(productTag);
 	var url = req.body.url;
-	console.log("url: " + url);
+	 console.log("url: " + url);
 
 	var newContent = new Content({
 		productType: productType,
@@ -144,7 +169,15 @@ router.post("/lists", function(req, res){
 			res.send(err);
 		}
 		else{
-			res.send(doc);
+			List.findOneAndUpdate({}, {$push: {"content": doc._id} }, {new: true}, function(err, newdoc){
+
+				if(err){
+					res.send(err);
+				}
+				else{
+					res.send(newdoc);
+				}
+			})
 		}
 	});
 

@@ -16,6 +16,9 @@ var db = mongoose.connection;
 var routes = require("./routes/index");
 var users = require("./routes/users");
 
+mongoose.Promise = Promise;
+
+
 //Init App
 var app = express();
 
