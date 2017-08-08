@@ -1,11 +1,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="page-header">
-		  <h1>{{title}}</h1>
+		  <h1 class = "animated fadeIn">{{title}}</h1>
 		</div>
 
-<div class = "container">
+<div class = "container3">
 
-	<button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+	<button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add something to your list!</button>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -43,41 +43,9 @@
 
 <div id = "list-box">
 	<br><br>
-	<a href="/users/lists/all/{{title}}" class="btn btn-info" class = "button" role="button" name = "title" value = {{title}}>List All</a>
-	<!-- {{#each contents}}
-		<article class = "content">
-			<ul>
-				<li>Product: {{this.productType}}</li>
-			</ul>
-
-	{{/each}} -->
+	<a href="/users/lists/all/{{title}}" class="btn btn-info" id = "list-all" role="button" name = "title" value = {{title}}>List All</a>
 
 </div>
-
-<script>
-
-// $(document).ready(function(){
-// 	var thisTitle = $(this).attr("title");
-// 	$.ajax({
-// 		type: "GET",
-// 		url: "/users/lists/" + thisTitle
-// 	});
-// 	getContent();
-	
-// })
-
-// function getContent() {
-// 	var thisTitle = $(this).attr("title");
-// 	$.getJSON("/users/lists/" + thisTitle, function(data){
-// 		for (var i = 0; i < data.length; i++){
-// 			$("#list-box").prepend("<ul><li>" + data[i].productType + "</li></ul>");
-// 		}
-// 	})
-
-	
-// }
-</script>
-
 
 </div>
 
