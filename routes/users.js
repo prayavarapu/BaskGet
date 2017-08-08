@@ -3,7 +3,11 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var mongoose = require("mongoose");
 var LocalStrategy = require('passport-local').Strategy;
+
+mongoose.Promise = Promise;
+
 
 var User = require('../models/user');
 var List = require('../models/list');
@@ -107,44 +111,26 @@ router.get('/logout', function(req, res){
 
 // Get list page
 router.get('/lists/:title', function(req, res){
+
 	 var titleList = req.params.title;
-	//console.log(titleList);
 
+	 console.log("titlelist" + titleList);
 
-res.render('list', {title: titleList});
-});
+	 res.render('list', {"title": titleList});
+	 
+	 
 
+})
 
-//creating example list and putting content within it
-
-// var exampleList = new List({
-// 	title: "Fashion"
-// });
-
-// exampleList.save(function(error, doc){
-// 	if (error){
-// 		console.log(error);
-
-// 	}
-// 	else{
-// 		console.log(doc);
-// 	}
-// });
 
 //adding content within the list
 router.post("/lists", function(req, res){
 
 	var lstTitle = req.body.title;
-	//console.log(lstTitle);
-	//console.log(req.body);
 	var productType = req.body.productType;
-	//console.log(productType);
 	var productTag = req.body.productTag;
-	//console.log(productTag);
 	var url = req.body.url;
-	//console.log("url: " + url);
 
-	
 	var newContent = new Content({
 		productType: productType,
 		productTag: productTag,
@@ -182,8 +168,7 @@ router.post("/lists", function(req, res){
 					
 				}
 			})
-		//}
-	//})
+		
 
 	var updateContent = function(listTitle, content){
 	newContent.save(function(err, content){
@@ -197,36 +182,35 @@ router.post("/lists", function(req, res){
 					console.log(err);
 				}
 				else{
-					res.send(newdoc);
+					res.send(content);
 				}
 			})
 		}
 	})
 //update content function ending
-};
+	};
 
-
-
-	
- 
 //end of the .post method
- });
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//getting all the content within the list
+router.get("/lists/all/:title", function(req, res, next){
+	var titleList = req.params.title;
+	console.log(titleList);
+	 List.find({"title": titleList}, function(err, found){
+	 	})
+	  		.populate("content")
+	 		.exec(function(error, data){ 
+	 			if (error){
+	 				res.send("error has occurred ");
+	 			}
+	 			else{
+	 				res.json(data);
+	 			}
+	 		})
+	
+	
+		})
 
 
 

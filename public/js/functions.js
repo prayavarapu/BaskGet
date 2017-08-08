@@ -1,9 +1,14 @@
 
-// //modal on click function
-// $(document).ready(function(){
-	
-// 	$('#make-list').click(function(){
-// 		console.log("tis working");
-// 		//$('#myModal').modal('show');
-// 	});
-// });
+
+
+
+
+
+
+// <ul class = "contents">
+// 	<% for(var i=0; i < contents.length; i++){%>
+// 	<li class = "content">
+// 	<span><%= contents[i].productType %></span>
+// 	</li>
+// 	<% }%>
+// 	</ul>

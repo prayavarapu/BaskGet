@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="page-header">
 		  <h1>{{title}}</h1>
 		</div>
@@ -28,11 +29,12 @@
 		
 				  <div class="form-group">
 				    <label for="productTag">Product URL: </label>
-				    <input type="text" class="form-control" id="productURL" placeholder="Paste product URL" name = "url">
+				    <input type="url" class="form-control" id="productURL" placeholder="Paste product URL" name = "url">
 				  </div>
 				  <button id = "submitForm" type="submit" class="btn btn-primary">Submit</button> 
 				  <br> <br>
 				</form>
+
 
 
     </div>
@@ -40,8 +42,61 @@
 </div>
 
 <div id = "list-box">
+	<br><br>
+	<a href="/users/lists/all/{{title}}" class="btn btn-info" class = "button" role="button" name = "title" value = {{title}}>List All</a>
+	<!-- {{#each contents}}
+		<article class = "content">
+			<ul>
+				<li>Product: {{this.productType}}</li>
+			</ul>
+
+	{{/each}} -->
 
 </div>
+
+<script>
+
+// $(document).ready(function(){
+// 	var thisTitle = $(this).attr("title");
+// 	$.ajax({
+// 		type: "GET",
+// 		url: "/users/lists/" + thisTitle
+// 	});
+// 	getContent();
+	
+// })
+
+// function getContent() {
+// 	var thisTitle = $(this).attr("title");
+// 	$.getJSON("/users/lists/" + thisTitle, function(data){
+// 		for (var i = 0; i < data.length; i++){
+// 			$("#list-box").prepend("<ul><li>" + data[i].productType + "</li></ul>");
+// 		}
+// 	})
+
+	
+// }
+</script>
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
